@@ -1,0 +1,45 @@
+<%= @user.name %>
+<br>
+<%= @user.intro%>
+<br>
+
+
+<div class = container>
+  <nav>
+    <div class="nav nav-tabs" id="nav-tab" role="tablist">
+      <%= link_to "所有文章1", articles_path, class: "nav-item nav-link active" %>
+      <%= link_to "心情1", mood_articles_path, class: "nav-item nav-link" %>
+      <%= link_to "課業1", study_articles_path, class: "nav-item nav-link" %>
+      <%= link_to "娛樂1", fun_articles_path, class: "nav-item nav-link" %>
+      <%= link_to "工作1", work_articles_path, class: "nav-item nav-link" %>
+      <%= link_to "其他1", others_articles_path, class: "nav-item nav-link" %>
+    </div>
+  </nav>
+  <div class="tab-content" id="nav-tabContent">
+    <div class="tab-pane fade show active" id="nav-home" role="tabpanel" aria-labelledby="nav-home-tab"></div>
+    <br>
+    <div class="tab-pane fade" id="nav-profile" role="tabpanel" aria-labelledby="nav-profile-tab"></div>
+    <div class="tab-pane fade" id="nav-contact" role="tabpanel" aria-labelledby="nav-contact-tab"></div>
+  </div>
+
+  <table class="table table-hover">
+    <thead class="thead-dark">
+      <tr>
+        <th scope="col">Reply count</th>
+        <th scope="col">Title</th>
+        <th scope="col">Last reply at</th>
+        <th scope="col">Viewed count</th>
+      </tr>
+    </thead>
+    <tbody>
+      <% @articles.each do |article| %>
+        <tr>
+          <td><%= article.replies_count %></td>
+          <td><%= article.title %></td>
+          <td><%= article.created_at %></td>
+          <td><%= article.viewed_count %></td>
+        </tr>
+      <% end %>
+    </tbody>
+  </table>
+</div>

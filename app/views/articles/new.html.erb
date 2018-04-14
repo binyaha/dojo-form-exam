@@ -3,6 +3,8 @@
   <%= f.text_field :title %>
   <%= f.label :content, "Content" %>
   <%= f.text_area :content %>
+  <%= f.label :image, "image" %>
+  <%= f.text_area :image %>
   <%= f.collection_radio_buttons :visible_id, Visible.all, :id , :name %>
   <%= f.collection_radio_buttons :category_id, Category.all, :id , :name %>
 
