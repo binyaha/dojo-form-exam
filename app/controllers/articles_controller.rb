@@ -17,7 +17,7 @@ class ArticlesController < ApplicationController
   def update
     @article = Article.find(params[:id])
     @article.update(article_params)
-    @article.save
+    @article.save         #還需要加上更新失敗判斷
     redirect_to article_path(@article)
   end
 
@@ -27,8 +27,12 @@ class ArticlesController < ApplicationController
 
   def create
     @article = Article.new(article_params)
-    @article.save
-    redirect_to article_path(@article)
+    if params[:status] != nil
+      @article.status = "draft"
+    end
+
+    @article.save    #還需要加上新增失敗判斷
+    redirect_to articles_path
   end
 
   def destroy
@@ -37,24 +41,29 @@ class ArticlesController < ApplicationController
   end
 
   def work
+    @articles = Article.all
   end
 
   def mood
+    @articles = Article.all
   end
   
   def study
+    @articles = Article.all
   end
   
-  def other
+  def others
+    @articles = Article.all
   end
 
   def fun
+    @articles = Article.all
   end
 
   private
 
   def article_params
-    params.require(:article).permit(:title, :content)
+    params.require(:article).permit(:title, :content, :visible_id, :category_id)
   end
 
 end
