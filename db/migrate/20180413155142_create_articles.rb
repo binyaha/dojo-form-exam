@@ -4,8 +4,8 @@ class CreateArticles < ActiveRecord::Migration[5.1]
       t.string :title
       t.string :content
       t.string :image
-      t.string :replies_count
-      t.string :viewed_count
+      t.integer :replies_count
+      t.integer :viewed_count
       t.string :status
       t.string :auth
       t.integer :user_id
