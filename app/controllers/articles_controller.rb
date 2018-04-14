@@ -36,6 +36,21 @@ class ArticlesController < ApplicationController
     @article.destroy
   end
 
+  def work
+  end
+
+  def mood
+  end
+  
+  def study
+  end
+  
+  def other
+  end
+
+  def fun
+  end
+
   private
 
   def article_params
