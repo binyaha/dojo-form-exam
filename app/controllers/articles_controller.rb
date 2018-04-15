@@ -30,6 +30,8 @@ class ArticlesController < ApplicationController
     @article = current_user.articles.build(article_params)
     if params[:status] != nil
       @article.status = "draft"
+    else
+      @article.status = "published"
     end
 
     @article.save    #還需要加上新增失敗判斷

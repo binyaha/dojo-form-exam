@@ -4,7 +4,15 @@ Rails.application.routes.draw do
   root "articles#index"
   get 'website', :to => 'website#index'
 
-  resources :users, only: [:show]
+  resources :users, only: [:show] do
+    member do
+      get :post
+      get :comment
+      get :collect
+      get :draft
+      get :friend
+    end
+  end
   resources :replies, only: [:create, :destroy, :edit]
   resources :articles do
     collection do
