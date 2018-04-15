@@ -9,6 +9,7 @@ class ArticlesController < ApplicationController
   def show
     @article = Article.find(params[:id])
     @reply = Reply.new
+    @favorite = current_user.favorites.where(article_id: @article.id)
   end
 
   def edit

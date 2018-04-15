@@ -13,7 +13,11 @@ Rails.application.routes.draw do
       get :friend
     end
   end
+
   resources :replies, only: [:create, :destroy, :edit]
+  resources :favorites, only: [:create, :destroy]
+
+
   resources :articles do
     collection do
       get :work

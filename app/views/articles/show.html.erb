@@ -3,6 +3,9 @@
 <%= @article.title %>
 <%= @article.content %>
 
+<%= link_to "收藏", favorites_path(article_id: @article.id), method: :post %>
+<%= link_to "移出收藏", favorite_path(@article), method: :delete %>
+
 <%= link_to "edit", edit_article_path(@article) %>
 <%= link_to "delete", article_path(@article), method: :delete %>
 

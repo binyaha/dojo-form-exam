@@ -32,17 +32,13 @@
       </tr>
     </thead>
     <tbody>
-      <% articles.each do |article| %>
-      
+      <% articles.each do |article| %>  
         <tr>
-          
-            <td><%= link_to article.replies_count, article_path(article) %></td>
-            <td><%= link_to article.title, article_path(article) %></td>
-            <td><%= link_to article.created_at, article_path(article) %></td>
-            <td><%= link_to article.viewed_count, article_path(article) %></td>
-
-        </tr>
-        
+          <td><%= link_to article.replies_count, article_path(article) %></td>
+          <td><%= link_to article.title, article_path(article) %></td>
+          <td><%= link_to article.created_at, article_path(article) %></td>
+          <td><%= link_to article.viewed_count, article_path(article) %></td>
+        </tr> 
       <% end %>
     </tbody>
   </table>
