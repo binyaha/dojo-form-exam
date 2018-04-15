@@ -1,5 +1,26 @@
+<%= @article.user.name %>
+<%= @article.user.image %>
 <%= @article.title %>
 <%= @article.content %>
 
 <%= link_to "edit", edit_article_path(@article) %>
 <%= link_to "delete", article_path(@article), method: :delete %>
+
+<% @article.replies.each do |reply| %>
+  <li>
+    <%= reply.user.email %>
+    <%= reply.user.image %>
+    <%= link_to "編輯", edit_reply_path(reply) %>
+    <%= link_to "刪除", reply_path(reply), method: :delete %>
+  </li>
+    <%= reply.comment %>
+
+<% end %>
+
+<%= form_for @reply do |f| %>
+  <%= f.label :comment, "Comment" %>
+  <%= f.text_area :comment %>
+  <%= hidden_field_tag 'article_id', @article.id %>
+  <%= f.submit  %>
+<% end %>
+

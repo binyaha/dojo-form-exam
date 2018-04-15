@@ -16,8 +16,8 @@ ActiveRecord::Schema.define(version: 20180414163514) do
     t.string "title"
     t.string "content"
     t.string "image"
-    t.integer "replies_count"
-    t.integer "viewed_count"
+    t.integer "replies_count", default: 0
+    t.integer "viewed_count", default: 0
     t.string "status"
     t.string "auth"
     t.integer "user_id"
@@ -50,7 +50,7 @@ ActiveRecord::Schema.define(version: 20180414163514) do
 
   create_table "replies", force: :cascade do |t|
     t.text "comment"
-    t.integer "atricle_id"
+    t.integer "article_id"
     t.integer "user_id"
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false

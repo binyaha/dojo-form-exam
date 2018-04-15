@@ -5,6 +5,7 @@ Rails.application.routes.draw do
   get 'website', :to => 'website#index'
 
   resources :users, only: [:show]
+  resources :replies, only: [:create, :destroy, :edit]
   resources :articles do
     collection do
       get :work
