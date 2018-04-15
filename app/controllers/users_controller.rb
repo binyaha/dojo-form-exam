@@ -9,6 +9,8 @@ class UsersController < ApplicationController
   end
 
   def collect
+    @user = current_user
+    @articles = @user.favorite_articles
   end
 
   def draft

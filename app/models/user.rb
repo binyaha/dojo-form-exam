@@ -6,4 +6,6 @@ class User < ApplicationRecord
   has_many :articles
   has_many :replies
   has_many :favorites
+
+  has_many :favorite_articles, through: :favorites, source: :article
 end
